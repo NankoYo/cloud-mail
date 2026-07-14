@@ -6,24 +6,18 @@ keep_vars = true
 [observability]
 enabled = true
 
-#[[d1_databases]]
-#binding = "db"			#d1数据库绑定名默认不可修改
-#database_name = ""		#d1数据库名字
-#database_id = ""		#d1数据库id
+[[d1_databases]]
+binding = "db"			#d1数据库绑定名默认不可修改
+database_name = "cloud-email"		#d1数据库名字
+database_id = "d7b13ee5-2417-4e89-b4d8-4e192ac8cbdb"		#d1数据库id
 
-#[[kv_namespaces]]
-#binding = "kv"			#kv绑定名默认不可修改
-#id = ""					#kv数据库id
+[[kv_namespaces]]
+binding = "kv"			#kv绑定名默认不可修改
+id = "5f8107a6bf5b4ec0915b015ac7130b37"					#kv数据库id
 
-#[[r2_buckets]]
-#binding = "r2"			#r2对象存储绑定名默认不可修改
-#bucket_name = ""		#r2对象存储桶的名字
-
-#[[send_email]]
-#name = "email"			#CF发件, 配置后优先使用
-
-[ai]
-binding = "ai"
+[[r2_buckets]]
+binding = "r2"			#r2对象存储绑定名默认不可修改
+bucket_name = "cloud-email"		#r2对象存储桶的名字
 
 [assets]
 binding = "assets"		#静态资源绑定名默认不可修改
@@ -32,16 +26,20 @@ not_found_handling = "single-page-application"
 run_worker_first = true
 
 [triggers]
-crons = ["0 16 * * *"]	#每天晚上12点执行每日任务,刷新分析缓存
+crons = ["0 16 * * *"]	#定时任务每天晚上12点执行
 
 
 [vars]
-#ai_model = ""			#ai模型,不填默认使用@cf/meta/llama-3.1-8b-instruct
-#analysis_cache = false			#是否开启分析数据缓存
-#orm_log = false			#是否sql日志
-#domain = []				#邮件域名可可配置多个 示例: ["example1.com","example2.com"]
-#admin = ""				#管理员的邮箱	示例: admin@example.com
-#jwt_secret = ""			#jwt令牌的密钥,随便填一串字符串
+orm_log = true
+domain = ["bkui.cn","nakeu.cn","nankoyo.cn","nankoyo.com","smart-pages.cn","vallengine.cn","email.nankoyo.com"]				#邮件域名可可配置多个 示例: ["example1.com","example2.com"]
+admin = "admin@email.nankoyo.com"				#管理员的邮箱	示例: admin@example.com
+jwt_secret = "Z7nxPq8mVL2bCr9XN1C"			#jwt令牌的密钥,随便填一串字符串
+linuxdo_client_id = "S48Pal6AkeNkLIN48nPv9ruAGJiiYUYP"
+linuxdo_client_secret = "xcxoARTyeILCYEzH59lGloUtze9NW2sa"
+linuxdo_callback_url = "https//mail.nankoyo.com/login"
+linuxdo_switch = "true"
+
+
 
 [build]
 command = "pnpm --prefix ../mail-vue install && pnpm --prefix ../mail-vue run build"
