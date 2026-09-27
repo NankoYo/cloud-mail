@@ -31,7 +31,7 @@ crons = ["0 16 * * *"]	#定时任务每天晚上12点执行
 
 [vars]
 orm_log = true
-domain = ["bkui.cn","nakeu.cn","nankoyo.cn","nankoyo.com","smart-pages.cn","vallengine.cn","email.nankoyo.com"]				#邮件域名可可配置多个 示例: ["example1.com","example2.com"]
+domain = ["bkui.cn","nakeu.cn","nankoyo.cn","nankoyo.com","smart-pages.cn","vallengine.cn","email.nankoyo.com","stnuo.com","email.stnuo.com","mail.nankoyo.com"]				#邮件域名可可配置多个 示例: ["example1.com","example2.com"]
 admin = "admin@email.nankoyo.com"				#管理员的邮箱	示例: admin@example.com
 jwt_secret = "Z7nxPq8mVL2bCr9XN1C"			#jwt令牌的密钥,随便填一串字符串
 linuxdo_client_id = "S48Pal6AkeNkLIN48nPv9ruAGJiiYUYP"
